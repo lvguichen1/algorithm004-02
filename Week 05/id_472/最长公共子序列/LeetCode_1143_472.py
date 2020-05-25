@@ -28,3 +28,9 @@ class Solution:
             print(dp)
         print(dp)
         return dp[m][n]
+
+
+x = 'abcde'
+y = 'ace'
+s = Solution()
+s.longestCommonSubsequence(x, y)

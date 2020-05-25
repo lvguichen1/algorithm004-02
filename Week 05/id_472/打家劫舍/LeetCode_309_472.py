@@ -17,5 +17,13 @@
 
 
 class Solution:
-    def maxProfit(self, k: int, prices) -> int:
-        pass
+    def maxProfit(self, prices) -> int:
+        n = len(prices)
+        dp_i_0, dp_i_1 = 0, float('-inf')
+        dp_pre_0 = 0
+        for price in prices:
+            temp = dp_i_0
+            dp_i_0 = max(dp_i_0, dp_i_1 + price)
+            dp_i_1 = max(dp_i_1, dp_pre_0 - price)
+            dp_pre_0 = temp
+        return dp_i_0

@@ -21,30 +21,30 @@ class TreeNode():
 #         :rtype: List[int]
 #         """
 #         res = []
-#         self.helper(root, res)
+#         self.inorder(root, res)
 #         return res
 #
-#     def helper(self, root, res):
-#         while root.left is not None:
-#             self.helper(root.left, res)
+#     def inorder(self, root, res):
+#         if not root:
+#             return res
+#         self.inorder(root.left, res)
 #         res.append(root.val)
-#         while root.right is not None:
-#             self.helper(root.right, res)
+#         self.inorder(root.right, res)
 
 
 # 基于栈的遍历
-# class Solution(object):
-#     def inorderTraversal(self, root):
-#         res = []
-#         stack = []
-#         temp = root
-#         while temp is not None or stack is not None:
-#             while temp is not None:
-#                 stack.append(temp)
-#                 temp = temp.left
-#             temp = stack.pop()
-#             res.append(temp.val)
-#             temp = temp.right
+class Solution(object):
+    def inorderTraversal(self, root):
+        res = []
+        stack = []
+        temp = root
+        while temp is not None or stack is not None:
+            while temp is not None:
+                stack.append(temp)
+                temp = temp.left
+            temp = stack.pop()
+            res.append(temp.val)
+            temp = temp.right
 
 
 # 颜色标记法

@@ -16,4 +16,11 @@ https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/yi-ge-
 
 class Solution:
     def maxProfit(self, prices) -> int:
-        pass
+        if len(prices) > 0:
+            min_price = prices[0]
+        max_diff = 0
+        for price in prices:
+            min_price = min(min_price, price)
+            diff = price - min_price
+            max_diff = max(diff, max_diff)
+        return max_diff
